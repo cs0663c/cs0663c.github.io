@@ -1,7 +1,8 @@
 #wireguard客户端先安装
 #可选安装Tunnel Service服务的形式运行
 命令如下：配置文件和路径自行修改
-wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf
+```shell
+wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf```
 ##******以下是动态域名的小技巧******
 首先前提时wireguard服务时部署在家里的动态公网主机上使用动态域名连接对端
 否则下面这些纯属白瞎搞 有固定公网的服务器无此烦恼
@@ -9,13 +10,15 @@ wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf
 一旦服务端ip变更便失联
 现在来个小技巧
 ###先运行一次配置文件确保连接正常
-`wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf`
+```shell
+wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf```
 运行服务services.msc找到服务WireGuard Tunnel: B75" 复制下来
 我们需要设置的就时让这任务定时重启 重启时它会重新解析ip 这样就曲线解决了
 新建一个bat
-`@echo off
+```shell
+@echo off
 net stop "WireGuard Tunnel: B75"
-net start "WireGuard Tunnel: B75"`
+net start "WireGuard Tunnel: B75"```
 就一个关和开的命令 这需要管理员权限 记得
 然后你要设置计划任务让其定时运行或者开机运行,这都是后话了,
 如果你有更好更简单的方式欢迎指教

@@ -12,7 +12,8 @@
 <meta name="description" content="#wireguard客户端先安装
 #可选安装Tunnel Service服务的形式运行
 命令如下：配置文件和路径自行修改
-wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf
+```shell
+wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf```
 ##******以下是动态域名的小技巧******
 首先前提时wireguard服务时部署在家里的动态公网主机上使用动态域名连接对端
 否则下面这些纯属白瞎搞 有固定公网的服务器无此烦恼
@@ -20,13 +21,15 @@ wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf
 一旦服务端ip变更便失联
 现在来个小技巧
 ###先运行一次配置文件确保连接正常
-`wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf`
+```shell
+wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf```
 运行服务services.msc找到服务WireGuard Tunnel: B75' 复制下来
 我们需要设置的就时让这任务定时重启 重启时它会重新解析ip 这样就曲线解决了
 新建一个bat
-`@echo off
+```shell
+@echo off
 net stop 'WireGuard Tunnel: B75'
-net start 'WireGuard Tunnel: B75'`
+net start 'WireGuard Tunnel: B75'```
 就一个关和开的命令 这需要管理员权限 记得
 然后你要设置计划任务让其定时运行或者开机运行,这都是后话了,
 如果你有更好更简单的方式欢迎指教
@@ -61,7 +64,8 @@ net start 'WireGuard Tunnel: H510HP' 2>> '%USERPROFILE%\Documents\WireGuard\rest
 <meta property="og:description" content="#wireguard客户端先安装
 #可选安装Tunnel Service服务的形式运行
 命令如下：配置文件和路径自行修改
-wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf
+```shell
+wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf```
 ##******以下是动态域名的小技巧******
 首先前提时wireguard服务时部署在家里的动态公网主机上使用动态域名连接对端
 否则下面这些纯属白瞎搞 有固定公网的服务器无此烦恼
@@ -69,13 +73,15 @@ wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf
 一旦服务端ip变更便失联
 现在来个小技巧
 ###先运行一次配置文件确保连接正常
-`wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf`
+```shell
+wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf```
 运行服务services.msc找到服务WireGuard Tunnel: B75' 复制下来
 我们需要设置的就时让这任务定时重启 重启时它会重新解析ip 这样就曲线解决了
 新建一个bat
-`@echo off
+```shell
+@echo off
 net stop 'WireGuard Tunnel: B75'
-net start 'WireGuard Tunnel: B75'`
+net start 'WireGuard Tunnel: B75'```
 就一个关和开的命令 这需要管理员权限 记得
 然后你要设置计划任务让其定时运行或者开机运行,这都是后话了,
 如果你有更好更简单的方式欢迎指教
@@ -166,47 +172,53 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><p>#wireguard客户端先安装<br>
 #可选安装Tunnel Service服务的形式运行<br>
-命令如下：配置文件和路径自行修改<br>
-wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf<br>
-##<strong>以下是动态域名的小技巧</strong><br>
-首先前提时wireguard服务时部署在家里的动态公网主机上使用动态域名连接对端<br>
-否则下面这些纯属白瞎搞 有固定公网的服务器无此烦恼<br>
-因为现在的客户端配置中第一次运行配置文件会解析对端域名换成公网ip 并不会实时监控ip是否变化<br>
-一旦服务端ip变更便失联<br>
-现在来个小技巧<br>
-###先运行一次配置文件确保连接正常<br>
-<code class="notranslate">wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf</code><br>
-运行服务services.msc找到服务WireGuard Tunnel: B75" 复制下来<br>
-我们需要设置的就时让这任务定时重启 重启时它会重新解析ip 这样就曲线解决了<br>
-新建一个bat<br>
-<code class="notranslate">@echo off net stop "WireGuard Tunnel: B75" net start "WireGuard Tunnel: B75"</code><br>
-就一个关和开的命令 这需要管理员权限 记得<br>
-然后你要设置计划任务让其定时运行或者开机运行,这都是后话了,<br>
-如果你有更好更简单的方式欢迎指教</p>
-<p>下面的是我自己的bat,花里胡哨仅供参考</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">@echo off
-setlocal enabledelayedexpansion
-
-@echo %date% %time% - 服务重启流程开始  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-@echo %date% %time% - 尝试停止服务 <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span>  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-net stop <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-<span class="pl-k">if</span> %errorlevel% neq 0 (
-     @echo %date% %time% - 停止服务失败，错误代码为 %errorlevel%  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-) <span class="pl-k">else</span> (
-     @echo %date% %time% - 服务成功停止  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-     @echo %date% %time% - 尝试启动服务 <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span>  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-     net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-     <span class="pl-k">if</span> %errorlevel% neq 0 (
-          @echo %date% %time% - 启动服务失败，错误代码为 %errorlevel%  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-     ) <span class="pl-k">else</span> (
-          @echo %date% %time% - 服务成功启动  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-     )
-)
-
-@echo %date% %time% - 尝试查询服务状态  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
-
-@echo %date% %time% - 服务重启操作完成  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></pre></div></div>
+命令如下：配置文件和路径自行修改</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">wireguard /installtunnelservice C:<span class="pl-cce">\U</span>sers<span class="pl-cce">\H</span>SSL<span class="pl-cce">\D</span>ocuments<span class="pl-cce">\W</span>ireGuard<span class="pl-cce">\B</span>75.conf<span class="pl-s"><span class="pl-pds">`</span><span class="pl-pds">`</span><span class="pl-pds">`</span></span>
+<span class="pl-s"><span class="pl-c"><span class="pl-c">#</span>#******以下是动态域名的小技巧******</span></span>
+<span class="pl-s">首先前提时wireguard服务时部署在家里的动态公网主机上使用动态域名连接对端</span>
+<span class="pl-s">否则下面这些纯属白瞎搞 有固定公网的服务器无此烦恼</span>
+<span class="pl-s">因为现在的客户端配置中第一次运行配置文件会解析对端域名换成公网ip 并不会实时监控ip是否变化</span>
+<span class="pl-s">一旦服务端ip变更便失联</span>
+<span class="pl-s">现在来个小技巧</span>
+<span class="pl-s"><span class="pl-c"><span class="pl-c">#</span>##先运行一次配置文件确保连接正常</span></span>
+<span class="pl-s"><span class="pl-pds">`</span><span class="pl-pds">`</span><span class="pl-pds">`</span></span>shell
+wireguard /installtunnelservice C:<span class="pl-cce">\U</span>sers<span class="pl-cce">\H</span>SSL<span class="pl-cce">\D</span>ocuments<span class="pl-cce">\W</span>ireGuard<span class="pl-cce">\B</span>75.conf<span class="pl-s"><span class="pl-pds">`</span><span class="pl-pds">`</span><span class="pl-pds">`</span></span>
+<span class="pl-s">运行服务services.msc找到服务WireGuard Tunnel: B75<span class="pl-s"><span class="pl-pds">"</span> 复制下来</span></span>
+<span class="pl-s"><span class="pl-s">我们需要设置的就时让这任务定时重启 重启时它会重新解析ip 这样就曲线解决了</span></span>
+<span class="pl-s"><span class="pl-s">新建一个bat</span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-pds">`</span><span class="pl-pds">`</span><span class="pl-pds">`</span>shell</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">@echo off</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">net stop <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: B75<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: B75<span class="pl-pds">"</span></span><span class="pl-pds">`</span><span class="pl-pds">`</span><span class="pl-pds">`</span></span></span></span>
+<span class="pl-s"><span class="pl-s">就一个关和开的命令 这需要管理员权限 记得</span></span>
+<span class="pl-s"><span class="pl-s">然后你要设置计划任务让其定时运行或者开机运行,这都是后话了,</span></span>
+<span class="pl-s"><span class="pl-s">如果你有更好更简单的方式欢迎指教</span></span>
+<span class="pl-s"><span class="pl-s"></span></span>
+<span class="pl-s"><span class="pl-s">下面的是我自己的bat,花里胡哨仅供参考</span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-pds">`</span><span class="pl-pds">`</span><span class="pl-pds">`</span>shell</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">@echo off</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">setlocal enabledelayedexpansion</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">@echo %date% %time% - 服务重启流程开始  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">@echo %date% %time% - 尝试停止服务 <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span>  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">net stop <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-k">if</span> %errorlevel% neq 0 (</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     @echo %date% %time% - 停止服务失败，错误代码为 %errorlevel%  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">) <span class="pl-k">else</span> (</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     @echo %date% %time% - 服务成功停止  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     @echo %date% %time% - 尝试启动服务 <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span>  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     <span class="pl-k">if</span> %errorlevel% neq 0 (</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">          @echo %date% %time% - 启动服务失败，错误代码为 %errorlevel%  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     ) <span class="pl-k">else</span> (</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">          @echo %date% %time% - 服务成功启动  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">     )</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">)</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">@echo %date% %time% - 尝试查询服务状态  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">@echo %date% %time% - 服务重启操作完成  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></span></span></span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
