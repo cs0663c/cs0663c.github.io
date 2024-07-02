@@ -21,7 +21,8 @@ net start "WireGuard Tunnel: B75"`
 如果你有更好更简单的方式欢迎指教
 
 下面的是我自己的bat,花里胡哨仅供参考
-`@echo off
+```shell
+@echo off
 setlocal enabledelayedexpansion
 
 @echo %date% %time% - 服务重启流程开始  >> "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"
@@ -43,4 +44,5 @@ if %errorlevel% neq 0 (
 @echo %date% %time% - 尝试查询服务状态  >> "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"
 net start "WireGuard Tunnel: H510HP" 2>> "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"
 
-@echo %date% %time% - 服务重启操作完成  >> "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"`
+@echo %date% %time% - 服务重启操作完成  >> "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"
+```

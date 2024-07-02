@@ -32,7 +32,8 @@ net start 'WireGuard Tunnel: B75'`
 如果你有更好更简单的方式欢迎指教
 
 下面的是我自己的bat,花里胡哨仅供参考
-`@echo off
+```shell
+@echo off
 setlocal enabledelayedexpansion
 
 @echo %date% %time% - 服务重启流程开始  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
@@ -54,8 +55,8 @@ if %errorlevel% neq 0 (
 @echo %date% %time% - 尝试查询服务状态  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
 net start 'WireGuard Tunnel: H510HP' 2>> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
 
-@echo %date% %time% - 服务重启操作完成  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'`
-。">
+@echo %date% %time% - 服务重启操作完成  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
+```。">
 <meta property="og:title" content="wireguard windows10下的使用">
 <meta property="og:description" content="#wireguard客户端先安装
 #可选安装Tunnel Service服务的形式运行
@@ -80,7 +81,8 @@ net start 'WireGuard Tunnel: B75'`
 如果你有更好更简单的方式欢迎指教
 
 下面的是我自己的bat,花里胡哨仅供参考
-`@echo off
+```shell
+@echo off
 setlocal enabledelayedexpansion
 
 @echo %date% %time% - 服务重启流程开始  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
@@ -102,13 +104,13 @@ if %errorlevel% neq 0 (
 @echo %date% %time% - 尝试查询服务状态  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
 net start 'WireGuard Tunnel: H510HP' 2>> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
 
-@echo %date% %time% - 服务重启操作完成  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'`
-。">
+@echo %date% %time% - 服务重启操作完成  >> '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cs0663c.github.io/post/wireguard%20windows10-xia-de-shi-yong.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
 <title>wireguard windows10下的使用</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -181,27 +183,30 @@ wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf<br>
 就一个关和开的命令 这需要管理员权限 记得<br>
 然后你要设置计划任务让其定时运行或者开机运行,这都是后话了,<br>
 如果你有更好更简单的方式欢迎指教</p>
-<p>下面的是我自己的bat,花里胡哨仅供参考<br>
-`@echo off<br>
-setlocal enabledelayedexpansion</p>
-<p><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 服务重启流程开始  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 尝试停止服务 "WireGuard Tunnel: H510HP"  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-net stop "WireGuard Tunnel: H510HP" 2&gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-if %errorlevel% neq 0 (<br>
-<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 停止服务失败，错误代码为 %errorlevel%  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-) else (<br>
-<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 服务成功停止  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 尝试启动服务 "WireGuard Tunnel: H510HP"  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-net start "WireGuard Tunnel: H510HP" 2&gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-if %errorlevel% neq 0 (<br>
-<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 启动服务失败，错误代码为 %errorlevel%  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-) else (<br>
-<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 服务成功启动  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-)<br>
-)</p>
-<p><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 尝试查询服务状态  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"<br>
-net start "WireGuard Tunnel: H510HP" 2&gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"</p>
-<p><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/echo/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/echo">@echo</a> %date% %time% - 服务重启操作完成  &gt;&gt; "%USERPROFILE%\Documents\WireGuard\restart_service_log.txt"`</p></div>
+<p>下面的是我自己的bat,花里胡哨仅供参考</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">@echo off
+setlocal enabledelayedexpansion
+
+@echo %date% %time% - 服务重启流程开始  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+@echo %date% %time% - 尝试停止服务 <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span>  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+net stop <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+<span class="pl-k">if</span> %errorlevel% neq 0 (
+     @echo %date% %time% - 停止服务失败，错误代码为 %errorlevel%  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+) <span class="pl-k">else</span> (
+     @echo %date% %time% - 服务成功停止  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+     @echo %date% %time% - 尝试启动服务 <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span>  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+     net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+     <span class="pl-k">if</span> %errorlevel% neq 0 (
+          @echo %date% %time% - 启动服务失败，错误代码为 %errorlevel%  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+     ) <span class="pl-k">else</span> (
+          @echo %date% %time% - 服务成功启动  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+     )
+)
+
+@echo %date% %time% - 尝试查询服务状态  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+net start <span class="pl-s"><span class="pl-pds">"</span>WireGuard Tunnel: H510HP<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span>
+
+@echo %date% %time% - 服务重启操作完成  <span class="pl-k">&gt;&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>%USERPROFILE%\Documents\WireGuard\restart_service_log.txt<span class="pl-pds">"</span></span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

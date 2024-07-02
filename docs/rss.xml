@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>乱七八糟的博客</title><link>https://cs0663c.github.io</link><description>创建容易维护难，谁有耐心写博客</description><copyright>乱七八糟的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://cs0663c.github.io</link></image><lastBuildDate>Tue, 02 Jul 2024 01:24:14 +0000</lastBuildDate><managingEditor>乱七八糟的博客</managingEditor><ttl>60</ttl><webMaster>乱七八糟的博客</webMaster><item><title>wireguard windows10下的使用</title><link>https://cs0663c.github.io/post/wireguard%20windows10-xia-de-shi-yong.html</link><description>#wireguard客户端先安装&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>乱七八糟的博客</title><link>https://cs0663c.github.io</link><description>创建容易维护难，谁有耐心写博客</description><copyright>乱七八糟的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://cs0663c.github.io</link></image><lastBuildDate>Tue, 02 Jul 2024 01:26:47 +0000</lastBuildDate><managingEditor>乱七八糟的博客</managingEditor><ttl>60</ttl><webMaster>乱七八糟的博客</webMaster><item><title>wireguard windows10下的使用</title><link>https://cs0663c.github.io/post/wireguard%20windows10-xia-de-shi-yong.html</link><description>#wireguard客户端先安装&#13;
 #可选安装Tunnel Service服务的形式运行&#13;
 命令如下：配置文件和路径自行修改&#13;
 wireguard /installtunnelservice C:\Users\HSSL\Documents\WireGuard\B75.conf&#13;
@@ -22,7 +22,8 @@ net start 'WireGuard Tunnel: B75'`&#13;
 如果你有更好更简单的方式欢迎指教&#13;
 &#13;
 下面的是我自己的bat,花里胡哨仅供参考&#13;
-`@echo off&#13;
+```shell&#13;
+@echo off&#13;
 setlocal enabledelayedexpansion&#13;
 &#13;
 @echo %date% %time% - 服务重启流程开始  &gt;&gt; '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'&#13;
@@ -44,8 +45,8 @@ if %errorlevel% neq 0 (&#13;
 @echo %date% %time% - 尝试查询服务状态  &gt;&gt; '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'&#13;
 net start 'WireGuard Tunnel: H510HP' 2&gt;&gt; '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'&#13;
 &#13;
-@echo %date% %time% - 服务重启操作完成  &gt;&gt; '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'`&#13;
-。</description><guid isPermaLink="true">https://cs0663c.github.io/post/wireguard%20windows10-xia-de-shi-yong.html</guid><pubDate>Tue, 02 Jul 2024 01:23:48 +0000</pubDate></item><item><title>windows 软链接的使用</title><link>https://cs0663c.github.io/post/windows%20-ruan-lian-jie-de-shi-yong.html</link><description># windows 软链接的使用&#13;
+@echo %date% %time% - 服务重启操作完成  &gt;&gt; '%USERPROFILE%\Documents\WireGuard\restart_service_log.txt'&#13;
+```。</description><guid isPermaLink="true">https://cs0663c.github.io/post/wireguard%20windows10-xia-de-shi-yong.html</guid><pubDate>Tue, 02 Jul 2024 01:23:48 +0000</pubDate></item><item><title>windows 软链接的使用</title><link>https://cs0663c.github.io/post/windows%20-ruan-lian-jie-de-shi-yong.html</link><description># windows 软链接的使用&#13;
 &#13;
 mklink /j 'E:\surveillance' 'd:\i34160\软件包\'&#13;
 mklink /j 'E:\要显示的位置' 'd:\文件存在的真实位置' #前面的不能有现成的文件夹&#13;
